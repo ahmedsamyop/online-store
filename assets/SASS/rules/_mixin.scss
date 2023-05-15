@@ -1,0 +1,66 @@
+// Flex => space-between
+@mixin f-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+// Flex => center
+@mixin f-center {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+@mixin p-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+// grid => in container
+@mixin grid($width, $gap) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill , minmax($width , 1fr));
+  gap: $gap;
+}
+// overlay
+@mixin overlay($color, $opacity) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color, $opacity);
+}
+//overlay-fixed
+@mixin overlay-f($color, $opacity, $z) {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color, $opacity);
+  z-index: $z;
+}
+//Media Queries => beakpoints
+@mixin breakpoints($point) {
+  @if $point == small {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media (max-width: 991px) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}
+// Ainmatiom
+@mixin key($anim-name) {
+
+  @keyframes #{$anim-name} {
+    @content;
+  }
+}

@@ -1,0 +1,65 @@
+@use '../rules/mixin' as *;
+
+
+.features-products {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background: var(--bgSection);
+  .container {
+    @include grid(250px, 20px);
+
+    .product {
+      background: white;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 0 5px 0 #ffffff;
+      .img-container{
+        width: 100%;
+        img {
+          width: 100%;
+          border-radius: 15px;
+        }
+      }
+
+      .content {
+        position: relative;
+        padding: 15px 0;
+        .brand {
+          color: var(--textColor);
+        }
+        .title {
+          font-weight: 500;
+          margin: 5px 0;
+        }
+        .rate {
+          color: #ffc107;
+          margin-bottom: 5px;
+          
+        }
+        .price {
+          font-size: 20px;
+          color: var(--mainColor);
+        }
+        .product-cart {
+          position: absolute;
+          width: 45px;
+          height: 45px;
+          right: 0;
+          bottom: 0;
+          border-radius: 50%;
+          background-color: rgb(0 150 136 / 30%);
+          color: var(--mainColor);
+          font-size: 20px;
+          @include f-center;
+          cursor: pointer;
+          transition: var(--mainTransition);
+          &:hover {
+            background-color: var(--mainColor);
+            color: white;
+          }
+        }
+
+      }
+    }
+  }
+}

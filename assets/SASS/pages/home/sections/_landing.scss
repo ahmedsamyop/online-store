@@ -1,0 +1,48 @@
+@use '../../../rules/mixin' as *;
+
+.landing {
+  height: 100vh;
+  background: url('../images/hero4.png');
+  background-size: cover;
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    .content {
+
+      span {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      h3 {
+        font-size: 40px;
+        letter-spacing: 3px;
+      }
+      h2 {
+        font-size: 50px;
+        color: var(--mainColor);
+        margin-bottom: 10px;
+      }
+      p {
+        margin-bottom: 10px;
+        color: var(--textColor);
+      }
+      a {
+        display: block;
+        padding: 10px 20px;
+        background: #d9d9d9;
+        width: fit-content;
+        border-radius: 8px;
+        color: var(--mainColor);
+        margin-left: 15px;
+        transition: var(--mainTransition);
+
+        &:hover {
+          background: linear-gradient(to right, var(--mainColor), #2e2e2e);
+          color: white;
+        }
+      }
+    }
+  }
+}

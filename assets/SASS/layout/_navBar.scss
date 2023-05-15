@@ -1,0 +1,114 @@
+@use "../rules/mixin" as *;
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
+  box-shadow: 0px 0px 8px 0px rgb(0 0 0 / 70%);
+  .container {
+    height: 100%;
+    position: relative;
+    @include f-between;
+    .logo {
+      color: var(--mainColor);
+      font-size: 25px;
+      font-weight: bold;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+
+      .nav-links {
+        @include f-between;
+        li a {
+          display: block;
+          padding: 20px;
+          color: var(--textColor);
+          position: relative;
+          transition: var(--mainTransition);
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -1px;
+            width: 0;
+            height: 0;
+            background-color: var(--mainColor);
+            transition: var(--mainTransition);
+          }
+
+          &:hover::after {
+            height: 3px;
+            width: 100%;
+          }
+
+          &:hover {
+            color: var(--mainColor);
+          }
+        }
+      }
+      .cart {
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: bold;
+        color: var(--mainColor);
+        padding: 5px 10px;
+      }
+      .icon {
+        display: none;
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: bold;
+        color: var(--mainColor);
+      }
+    }
+  }
+}
+// Nav Fixed
+.nav-fixed {
+  position: fixed;
+  background-color: rgb(0 0 0 / 90%);
+}
+// toggel this in javascript
+.show {
+  top: 60px !important; // nav-links
+}
+// toggel this in javascript
+.active {
+  color: var(--mainColor) !important; // li a
+}
+.active::after {
+  height: 2px !important;
+  width: 100% !important;
+}
+
+@include breakpoints(medium) {
+  .container {
+    .nav {
+      .nav-links {
+        background-color: rgb(96 125 139 / 90%);
+        width: 100%;
+        position: absolute;
+        top: -550px;
+        left: 0;
+        flex-direction: column;
+        padding: 20px 0 5px;
+        box-shadow: 0px 0px 8px 0px white;
+        border-radius: 8px;
+        transition: var(--mainTransition);
+      }
+      li {
+        width: 100%;
+        text-align: center;
+      }
+      .icon {
+        display: block !important;
+      }
+    }
+  }
+}

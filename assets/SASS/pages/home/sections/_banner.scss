@@ -1,0 +1,109 @@
+@use "../../../rules/mixin" as *;
+// "../images/banner/b2.jpg"
+.banner {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  .container {
+    .row {
+      @include f-between;
+      gap: 25px;
+      margin-bottom: 25px;
+
+      .box {
+        width: calc(100% / 2);
+        height: 330px;
+        display: flex;
+        align-items: center;
+        .content {
+          padding-left: 20px;
+          color: white;
+          span {
+            font-size: 20px;
+            font-weight: bold;
+          }
+          h3 {
+            font-size: 35px;
+            margin: 10px 0;
+          }
+          p {
+            margin-bottom: 10px;
+          }
+          a {
+            display: block;
+            width: fit-content;
+            padding: 10px 15px;
+            border: 1px solid #fff;
+            color: #fff;
+            transition: var(--mainTransition);
+
+            &:hover {
+              background: var(--mainColor);
+            }
+          }
+        }
+        &:nth-child(1) {
+          background: url("../images/banner/b17.jpg");
+        }
+        &:nth-child(2) {
+          background: url("../images/banner/b10.jpg");
+        }
+      }
+    }
+
+    .row-2 {
+      @include f-between;
+      gap: 25px;
+      margin-bottom: 25px;
+      .box {
+        width: calc(100% / 3);
+        height: 208px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        color: #fff;
+        h3 {
+          padding-left: 5px;
+          font-size: 30px;
+          margin-bottom: 10px;
+          text-transform: capitalize;
+        }
+        p {
+          padding-left: 5px;
+          color: #ff5722;
+          font-size: 18px;
+        }
+        &:nth-child(1) {
+          background: url("../images/banner/b7.jpg");
+          background-size: cover;
+        }
+        &:nth-child(2) {
+          background: url("../images/banner/b4.jpg");
+          background-size: cover;
+        }
+        &:nth-child(3) {
+          background: url("../images/banner/b18.jpg");
+          background-size: cover;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoints(small) {
+  .banner {
+    .container {
+      .row {
+        flex-direction: column;
+        .box {
+          width: 100%;
+        }
+      }
+      .row-2 {
+        flex-direction: column;
+        .box {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

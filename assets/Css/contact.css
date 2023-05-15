@@ -1,0 +1,438 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  --mainColor: #009688;
+  --textColor: #505050;
+  --bgSection: #e3e6f3;
+  --mainTransition: 0.5s;
+  --section-padding: 100px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--mainColor);
+}
+
+::-webkit-scrollbar-track {
+  background-color: #b7b7b7;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p,
+h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+.main-header {
+  text-align: center;
+  width: fit-content;
+  font-weight: 500;
+  font-size: 50px;
+  color: black;
+  margin: 0 auto 15px;
+}
+
+.main-header + p {
+  text-align: center;
+  font-size: 18px;
+  color: var(--textColor);
+  width: fit-content;
+  margin: 0 auto 60px;
+}
+
+.go-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 6px;
+  font-size: 27px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 0 8px 0 var(--mainColor);
+  background-color: white;
+  color: var(--mainColor);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: var(--mainTransition);
+  z-index: 10001;
+}
+.go-top:hover {
+  opacity: 1;
+  box-shadow: 0 0 8px 5px var(--mainColor);
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.7);
+}
+.header .container {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .container .logo {
+  color: var(--mainColor);
+  font-size: 25px;
+  font-weight: bold;
+}
+.header .container .nav {
+  display: flex;
+  align-items: center;
+}
+.header .container .nav .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .container .nav .nav-links li a {
+  display: block;
+  padding: 20px;
+  color: var(--textColor);
+  position: relative;
+  transition: var(--mainTransition);
+}
+.header .container .nav .nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -1px;
+  width: 0;
+  height: 0;
+  background-color: var(--mainColor);
+  transition: var(--mainTransition);
+}
+.header .container .nav .nav-links li a:hover::after {
+  height: 3px;
+  width: 100%;
+}
+.header .container .nav .nav-links li a:hover {
+  color: var(--mainColor);
+}
+.header .container .nav .cart {
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--mainColor);
+  padding: 5px 10px;
+}
+.header .container .nav .icon {
+  display: none;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--mainColor);
+}
+
+.nav-fixed {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.show {
+  top: 60px !important;
+}
+
+.active {
+  color: var(--mainColor) !important;
+}
+
+.active::after {
+  height: 2px !important;
+  width: 100% !important;
+}
+
+@media (max-width: 991px) {
+  .container .nav .nav-links {
+    background-color: rgba(96, 125, 139, 0.9);
+    width: 100%;
+    position: absolute;
+    top: -550px;
+    left: 0;
+    flex-direction: column;
+    padding: 20px 0 5px;
+    box-shadow: 0px 0px 8px 0px white;
+    border-radius: 8px;
+    transition: var(--mainTransition);
+  }
+  .container .nav li {
+    width: 100%;
+    text-align: center;
+  }
+  .container .nav .icon {
+    display: block !important;
+  }
+}
+.contact-header {
+  margin-top: 60px;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background: url("../images/about/banner.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.contact-header .content {
+  text-align: center;
+  color: white;
+}
+.contact-header .content h1 {
+  font-size: 50px;
+}
+.contact-header .content h3 {
+  color: var(--textColor);
+  margin: 15px 0;
+  font-size: 25px;
+}
+.contact-header .content h3 span {
+  color: red;
+}
+
+.contact-us {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+.contact-us .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contact-us .container .content {
+  color: var(--textColor);
+  width: calc(50% - 15px);
+}
+.contact-us .container .content span:last-of-type {
+  font-weight: bold;
+  color: black;
+}
+.contact-us .container .content h3 {
+  margin: 15px 0;
+  font-size: 30px;
+  color: black;
+}
+.contact-us .container .content ul {
+  margin-top: 15px;
+}
+.contact-us .container .content ul li {
+  display: flex;
+  align-items: center;
+}
+.contact-us .container .content ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.contact-us .container .content ul li .icon {
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+@media (max-width: 767px) {
+  .contact-us .container {
+    flex-direction: column;
+  }
+  .contact-us .container .content {
+    width: 100%;
+  }
+  .contact-us .container .location {
+    width: 100%;
+  }
+}
+.massage {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.massage .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #cdcdcd;
+}
+.massage .container .text {
+  align-self: flex-start;
+}
+.massage .container .text span {
+  color: var(--textColor);
+  text-transform: capitalize;
+}
+.massage .container .text h3 {
+  margin: 15px 0;
+  font-size: 25px;
+}
+.massage .container form {
+  width: 50%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.massage .container form input {
+  padding: 10px 5px;
+  border: 1px solid var(--textColor);
+  border-radius: 4px;
+}
+.massage .container form input:not(:last-child) {
+  margin-bottom: 15px;
+}
+.massage .container form input:last-child {
+  background: var(--mainColor);
+  color: #fff;
+  width: fit-content;
+  padding: 15px 40px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  opacity: 0.7;
+  transition: var(--mainTransition);
+}
+.massage .container form input:last-child:hover {
+  opacity: 1;
+}
+.massage .container form input:focus {
+  outline: none;
+}
+.massage .container form textarea {
+  height: 200px;
+  width: 100%;
+  max-width: 100%;
+  max-height: 200px;
+  padding: 10px 5px;
+  margin-bottom: 15px;
+}
+.massage .container form textarea:focus {
+  outline: none;
+}
+
+@media (max-width: 767px) {
+  .massage .container form {
+    width: 100%;
+  }
+}
+.footer {
+  background: linear-gradient(to right, white, rgba(0, 150, 135, 0.5019607843));
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+}
+.footer .container .contact .logo {
+  color: var(--mainColor);
+  font-size: 80px;
+  font-weight: bold;
+}
+.footer .container .contact .info h4 {
+  margin: 10px 0;
+  font-size: 25px;
+  color: var(--textColor);
+}
+.footer .container .contact .info p {
+  color: var(--textColor);
+}
+.footer .container .contact .info p:not(:last-child) {
+  margin-bottom: 5px;
+}
+.footer .container .contact .info p span {
+  color: var(--mainColor);
+}
+.footer .container .contact .follow {
+  color: var(--textColor);
+  margin-top: 10px;
+  font-size: 20px;
+}
+.footer .container .contact .follow svg {
+  cursor: pointer;
+  transition: var(--mainTransition);
+}
+.footer .container .contact .follow svg:not(:last-child) {
+  margin-right: 5px;
+}
+.footer .container .contact .follow svg:hover {
+  color: var(--mainColor);
+}
+.footer .container .box h4 {
+  margin-bottom: 10px;
+  font-size: 25px;
+  color: var(--textColor);
+}
+.footer .container .box ul li a {
+  color: var(--textColor);
+  display: block;
+  padding: 10px 0;
+}
+.footer .container .box ul li a:hover {
+  color: var(--mainColor);
+}
+.footer .dev {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 15px;
+}
+.footer .dev a {
+  color: var(--mainColor);
+}
+
+@media (max-width: 767px) {
+  .footer .container {
+    flex-direction: column;
+  }
+  .footer .container .contact {
+    margin-bottom: 20px;
+  }
+}

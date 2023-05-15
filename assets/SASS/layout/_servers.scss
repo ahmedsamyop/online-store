@@ -1,0 +1,41 @@
+@use "../rules/mixin" as *;
+
+.servers {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  .container {
+    @include f-between;
+    gap: 15px;
+    .box {
+      padding: 20px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 0 8px 0px #bfbfbf;
+
+      .img-container {
+        margin-bottom: 10px;
+        img {
+          width: 100%;
+        }
+      }
+      .text {
+        display: inline-block;
+        padding: 8px;
+        background: rgb(255 235 59 / 50%);
+        border-radius: 8px;
+        color: var(--mainColor);
+      }
+    }
+  }
+}
+
+@include breakpoints(medium) {
+  .servers {
+    .container {
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      overflow-x: scroll;
+    }
+  }
+}

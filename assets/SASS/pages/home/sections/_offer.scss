@@ -1,0 +1,36 @@
+@use '../../../rules/mixin' as *;
+
+.offer {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: url("../images/banner/b2.jpg");
+  .content {
+    text-align: center;
+    color: white;
+    p {
+
+    }
+    h3 {
+      margin: 15px 0;
+      font-size: 30px;
+      span {
+        color: red;
+      }
+    }
+    a {
+      display: block;
+      width: fit-content;
+      margin: auto;
+      padding: 10px 20px;
+      background: white;
+      color: black;
+      font-size: 20px;
+      border-radius: 8px;
+      transition: var(--mainTransition);
+      &:hover {
+        background: var(--mainColor);
+        color: white;
+      }
+    }
+  }
+}

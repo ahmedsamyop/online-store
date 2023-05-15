@@ -1,0 +1,79 @@
+@use "../../../rules/mixin" as *;
+
+.massage {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  .container {
+    @include f-center;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #cdcdcd;
+    .text {
+      align-self: flex-start;
+      span {
+        color: var(--textColor);
+        text-transform: capitalize;
+      }
+      h3 {
+        margin: 15px 0;
+        font-size: 25px;
+      }
+    }
+    form {
+      width: 50%;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+
+      input {
+        padding: 10px 5px;
+        border: 1px solid var(--textColor);
+        border-radius: 4px;
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+        &:last-child {
+          background: var(--mainColor);
+          color: #fff;
+          width: fit-content;
+          padding: 15px 40px;
+          cursor: pointer;
+          outline: none;
+          border: none;
+          opacity: 0.7;
+          transition: var(--mainTransition);
+          &:hover {
+            opacity: 1;
+          }
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+
+      textarea {
+        height: 200px;
+        width: 100%;
+        max-width: 100%;
+        max-height: 200px;
+        padding: 10px 5px;
+        margin-bottom: 15px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoints(small) {
+  .massage {
+    .container {
+      form {
+        width: 100%;
+      }
+    }
+  }
+}

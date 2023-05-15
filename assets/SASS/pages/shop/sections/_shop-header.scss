@@ -1,0 +1,24 @@
+@use '../../../rules/mixin' as *;
+
+.shop-header {
+  margin-top: 60px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: url("../images/banner/b1.jpg");
+  .content {
+    text-align: center;
+    color: white;
+    h1 {
+      font-size: 50px;
+    }
+
+    h3 {
+      color: var(--textColor);
+      margin: 15px 0;
+      font-size: 25px;
+      span {
+        color: red;
+      }
+    }
+  }
+}

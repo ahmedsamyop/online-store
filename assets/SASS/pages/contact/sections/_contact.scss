@@ -1,0 +1,55 @@
+@use "../../../rules/mixin" as *;
+
+.contact-us {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  .container {
+    @include f-between;
+    .content {
+      color: var(--textColor);
+      width: calc(100% / 2 - 15px);
+      span {
+        &:last-of-type {
+          font-weight: bold;
+          color: black;
+        }
+      }
+      h3 {
+        margin: 15px 0;
+        font-size: 30px;
+        color: black;
+      }
+      ul {
+        margin-top: 15px;
+        li {
+          display: flex;
+          align-items: center;
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+          .icon {
+            margin-right: 15px;
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    // .location{
+
+    // }
+  }
+}
+
+@include breakpoints(small) {
+  .contact-us {
+    .container {
+      flex-direction: column;
+      .content {
+        width: 100%;
+      }
+      .location {
+        width: 100%;
+      }
+    }
+  }
+}
